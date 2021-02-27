@@ -10,7 +10,7 @@ tags:
     - Ajax
     - API
 ---
-## <a name="link"/>JavaScript目录:triangular_flag_on_post:
+## <a name="link"/>JavaScript目录
 * [语法和基本构造](#yufa)  
 * [学些DOM操作](./HTML_DOM.md)  
 * [学习Fetch API / Ajax(XHR)](./AJAX.md)  
@@ -22,8 +22,8 @@ tags:
     * 原型  
     * Shadow DOM  
     * 严格模式  
-***
-## <a name="yufa"/>语法和基本构造 :golf:
+
+## <a name="yufa"/>语法和基本构造 
 ### <a name="link"/>目录
 * [运算符号](#FH)  
 * [数据类型](#DateTypes)  
@@ -156,13 +156,13 @@ var x;           // Now x is undefined
 x = 5;           // Now x is a Number
 x = "John";      // Now x is a String
 ```
-##### <a name="String">字符串 :round_pushpin:
+##### <a name="String">字符串 
 **字符串**用引号引起来。您可以使用单引号或双引号：  
 ```js
 var carName1 = "Volvo XC60";   // Using double quotes
 var carName2 = 'Volvo XC60';   // Using single quotes
 ```
-##### <a name="Number">数字 :round_pushpin:
+##### <a name="Number">数字 
 **数字**可以带或不带小数：  
 ```js
 var x1 = 34.00;     // Written with decimals
@@ -173,7 +173,7 @@ var x2 = 34;        // Written without decimals
 var y = 123e5;      // 12300000
 var z = 123e-5;     // 0.00123
 ```
-##### <a name="Bool">布尔值 :round_pushpin:
+##### <a name="Bool">布尔值 
 **布尔值**只能有两个值：true或false  
 ```js
 var x = 5;
@@ -184,7 +184,7 @@ var z = 6;
 ```
 > 在条件测试中经常使用布尔值  
   
-##### <a name="Array">数组 :round_pushpin:
+##### <a name="Array">数组 
 JavaScript数组用方括号括起来,数组项用逗号分隔  
 ```js
 var cars = ["Saab", "Volvo", "BMW"];
@@ -249,12 +249,12 @@ myArray;
 removedItem;
 //"Manchester"
 ```
-##### <a name="Objects">对象 :round_pushpin:
+##### <a name="Objects">对象 
 JavaScript对象用大括号编写```{}```,对象属性写为名称：值对，用逗号分隔  
 ```js
 var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
 ```
-##### <a name="Typeof">typeof 运算符 :round_pushpin:
+##### <a name="Typeof">typeof 运算符 
 使用JavaScript ```typeof```运算符来查找JavaScript变量的类型  
 ```js
 typeof ""             // Returns "string"
@@ -262,7 +262,7 @@ typeof "John"         // Returns "string"
 typeof 3.14           // Returns "number"
 typeof (3)            // Returns "number"
 ```
-##### <a name="Undefined">Undefined :round_pushpin:  
+##### <a name="Undefined">Undefined   
 在 JavaScript 中，没有值的变量，其值是 undefine, typeof 也返回 undefined  
 ```js
 var car;    // Value is undefined, type is undefined
@@ -272,13 +272,13 @@ var car;    // Value is undefined, type is undefined
 > car = undefined;    // Value is undefined, type is undefined
 > ```
   
-##### <a name="Empty">空值 :round_pushpin:  
+##### <a name="Empty">空值   
 空值与 undefined 不是一回事，空的字符串变量既有值也有类型  
 > ```js
 > var car = "";     // 值是 ""，类型是 "string"
 > ```
   
-##### <a name="Null">Null :round_pushpin:  
+##### <a name="Null">Null   
 在 JavaScript 中，null 是 "nothing"。它被看做不存在的事物  
   
 不幸的是，在 JavaScript 中，null 的数据类型是对象  
@@ -302,7 +302,7 @@ var person = undefined;     // 值是 undefined，类型是 undefined
 > null == undefined             // true
 > ```
   
-##### <a name="Date">复杂数据 :round_pushpin:  
+##### <a name="Date">复杂数据   
 ```typeof``` 运算符可返回以下两种类型之一：  
   
 * function  
@@ -484,12 +484,12 @@ var car = {type:"porsche", model:"911", color:"white"};
 * [访问对象方法](#OBJ_FANGF) 
 * [Tip](#Tip)  
 
-##### <a name="OBJ_Type">对象属性:round_pushpin:  
+##### <a name="OBJ_Type">对象属性  
 （JavaScript 对象中的）名称:值对被称为**属性**  
 ```js
 var car = {type:"porsche", model:"911", color:"white"};
 ```
-##### <a name="OBJ_FF">对象方法:round_pushpin:  
+##### <a name="OBJ_FF">对象方法  
 方法是在对象上执行的**动作**，方法以**函数定义**被存储在属性中  
   
 方法是作为属性来存储的函数  
@@ -503,13 +503,13 @@ var person = {
   }
 };
 ```
-##### <a name="OBJ_GJC">this关键词:round_pushpin:  
+##### <a name="OBJ_GJC">this关键词  
 在函数定义中，this 引用该函数的“拥有者”。  
   
 在上面的例子中，this 指的是“拥有” fullName 函数的** person 对象**。  
   
 换言之，this.firstName 的意思是** this 对象**的 firstName 属性。  
-##### <a name="OBJ_DEF">对象定义:round_pushpin:  
+##### <a name="OBJ_DEF">对象定义  
 定义（创建）了一个 JavaScript 对象：  
 ```js
 var person = {
@@ -519,14 +519,14 @@ var person = {
     eyeColor:"blue"
 };
 ```
-##### <a name="OBJ_SHUX">访问对象属性:round_pushpin:  
+##### <a name="OBJ_SHUX">访问对象属性  
 两种方式访问属性：  
 ```js
     objectName.propertyName
     //等同于
     objectName["propertyName"]
 ```
-##### <a name="OBJ_FANGF">访问对象方法:round_pushpin:  
+##### <a name="OBJ_FANGF">访问对象方法  
 通过如下语法访问对象方法：  
 
 * ```objectName.methodName()```  
@@ -580,7 +580,7 @@ Javascript 对象方法
 unction() { return this.firstName + " " + this.lastName; }
 ```
 > 方法实际上是以属性值的形式存储的函数定义。
-##### <a name="Tip">请不要把字符串、数值和布尔值声明为对象！:round_pushpin:  
+##### <a name="Tip">请不要把字符串、数值和布尔值声明为对象！  
 如果通过关键词 "new" 来声明 JavaScript 变量，则该变量会被创建为对象：  
   
 ```js
