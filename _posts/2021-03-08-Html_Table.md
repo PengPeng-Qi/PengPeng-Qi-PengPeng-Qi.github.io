@@ -179,6 +179,7 @@ table, th, td {
 
 </body>
 </html>
+> 由于显示问题，详细视图请[见](https://www.w3schools.com/html/tryit.asp?filename=tryhtml_table_border)
 ## 塌陷的边框
 要使边框折叠成一个边框，请添加CSS `border-collapse` 属性：
 ```css
@@ -324,3 +325,9 @@ table {
     <td>$53</td>
   </tr>
 </table>
+
+----
+
+reference: [W3C](https://www.w3schools.com/html/html_tables.asp)
+
+持续更新中...
