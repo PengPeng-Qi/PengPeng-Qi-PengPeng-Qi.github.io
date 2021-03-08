@@ -313,7 +313,8 @@ The `<output>` element represents the result of a calculation (like one performe
   
 ### <code>target</code> 属性
 该`target`属性指定提交表单后在何处显示收到的响应。  
-<table notranslate"> 
+  
+<table notranslate> 
   <tbody>
   <tr>
     <th style="width:20%">Value</th>
@@ -340,7 +341,8 @@ The `<output>` element represents the result of a calculation (like one performe
     <td>The response is displayed in a named iframe</td>
   </tr>
   </tbody>
-</table>
+</table>  
+
 ```html
 <form action="/action_page.php" method="get">
 ```
