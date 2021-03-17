@@ -375,6 +375,89 @@ table {
 
 </tbody>
 ```
+## 更多特性
+```css
+#t01 tr:nth-child(even) {
+  background-color: #eee;
+}
+#t01 tr:nth-child(odd) {
+  background-color: #fff;
+}
+#t01 th {
+  color: white;
+  background-color: black;
+}
+```
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  width:100%;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+#t01 tr:nth-child(even) {
+  background-color: #eee;
+}
+#t01 tr:nth-child(odd) {
+ background-color: #fff;
+}
+#t01 th {
+  background-color: black;
+  color: white;
+}
+</style>
+</head>
+<body>
+<table id="t01">
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th> 
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+  <tr>
+    <td>John</td>
+    <td>Doe</td>
+    <td>80</td>
+  </tr>
+</table>
+
+</body>
+</html>
+
+<dl>
+ <dt><code>tr:nth-child(2n+1)</code></dt>
+ <dd>表示HTML表格中的奇数行。</dd>
+ <dt><code>tr:nth-child(odd)</code></dt>
+ <dd>表示HTML表格中的奇数行。</dd>
+ <dt><code>tr:nth-child(2n)</code></dt>
+ <dd>表示HTML表格中的偶数行。</dd>
+ <dt><code>tr:nth-child(even)</code></dt>
+ <dd>表示HTML表格中的偶数行。</dd>
+ <dt><code>span:nth-child(0n+1)</code></dt>
+ <dd>表示子元素中第一个且为span的元素，与&nbsp;<span style="background-color: #ffffff; color: #4d4e53; font-family: open sans,arial,sans-serif; font-size: 14px; line-height: 21px;"><a href="/zh-CN/docs/Web/CSS/:first-child"><code>:first-child</code></a>&nbsp;</span>选择器作用相同。</dd>
+ <dt><code>span:nth-child(1)</code></dt>
+ <dd>表示父元素中子元素为第一的并且名字为span的标签被选中</dd>
+ <dt><code>span:nth-child(-n+3)</code></dt>
+ <dd>匹配前三个子元素中的span元素。</dd>
+</dl>
 ## HTML Table Tags
 <table>
 <tbody>
