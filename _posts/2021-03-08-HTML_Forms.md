@@ -1082,7 +1082,7 @@ The input `list` attribute refers to a `<datalist>` element that contains pre-de
     <option value="Firefox">
     <option value="Chrome">
     <option value="Opera">
-    <option value="Safari">
+    <option value="Safari"></option>
   </datalist>
 </form>
   
