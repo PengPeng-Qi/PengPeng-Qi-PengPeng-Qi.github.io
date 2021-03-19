@@ -1064,8 +1064,8 @@ The input `height` and `width` attributes specify the height and width of an `<i
 The input `list` attribute refers to a `<datalist>` element that contains pre-defined options for an `<input>` element.  
   
 ```html
-<form>
-  <input list="browsers">
+<form action="/action_page.php">
+  <input list="browsers" name="browser">
   <datalist id="browsers">
     <option value="Internet Explorer">
     <option value="Firefox">
@@ -1073,19 +1073,21 @@ The input `list` attribute refers to a `<datalist>` element that contains pre-de
     <option value="Opera">
     <option value="Safari">
   </datalist>
+  <input type="submit" value="Submit">
 </form>
 ```
-<form>
-  <input list="browsers">
+<form action="/action_page.php">
+  <input list="browsers" name="browser">
   <datalist id="browsers">
     <option value="Internet Explorer">
     <option value="Firefox">
     <option value="Chrome">
     <option value="Opera">
-    <option value="Safari"></option>
+    <option value="Safari">
   </datalist>
+  <input type="submit" value="Submit">
 </form>
-<hr>  
+  
 ### The autocomplete Attribute
 The input `autocomplete` attribute specifies whether a form or an input field should have autocomplete on or off.  
   
