@@ -1079,11 +1079,11 @@ The input `list` attribute refers to a `<datalist>` element that contains pre-de
 <form action="/action_page.php">
   <input list="browsers" name="browser">
   <datalist id="browsers">
-    <option value="Internet Explorer">
-    <option value="Firefox">
-    <option value="Chrome">
-    <option value="Opera">
-    <option value="Safari">
+    <option value="Internet Explorer"></option>
+    <option value="Firefox"></option>
+    <option value="Chrome"></option>
+    <option value="Opera"></option>
+    <option value="Safari"></option>
   </datalist>
   <input type="submit" value="Submit">
 </form>
