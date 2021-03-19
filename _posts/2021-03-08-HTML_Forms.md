@@ -1085,6 +1085,7 @@ The input `list` attribute refers to a `<datalist>` element that contains pre-de
     <option value="Safari">
   </datalist>
 </form>
+  
 ### The `autocomplete` Attribute
 The input `autocomplete` attribute specifies whether a form or an input field should have autocomplete on or off.  
   
