@@ -1108,6 +1108,8 @@ The input `autocomplete` attribute specifies whether a form or an input field sh
   <input type="email" id="email" name="email" autocomplete="off"><br><br>
   <input type="submit" value="Submit">
 </form>
+## HTML Input form* Attributes
+[HTML Input form* Attributes](https://www.w3schools.com/html/html_form_attributes_form.asp)
 -------
 
 
