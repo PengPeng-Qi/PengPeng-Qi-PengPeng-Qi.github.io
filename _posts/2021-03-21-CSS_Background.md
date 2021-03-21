@@ -85,6 +85,7 @@ body {
 }
 ```
 更多例子可[见](https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-attachment)  
+<hr>
 取值：
 <dl>
  <dt><code>fixed</code></dt>
