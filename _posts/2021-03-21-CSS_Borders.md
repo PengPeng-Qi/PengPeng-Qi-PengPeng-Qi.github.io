@@ -42,8 +42,6 @@ p.mix {border-style: dotted dashed solid double;}
 </style>
 </head>
 <body>
-
-<h2>The border-style Property</h2>
 <p>This property specifies what kind of border to display:</p>
 
 <p class="dotted">A dotted border.</p>
@@ -131,7 +129,6 @@ p.six {
 </head>
 <body>
 
-<h2>The border-width Property</h2>
 <p>This property specifies the width of the four borders:</p>
 
 <p class="one">Some text.</p>
@@ -145,7 +142,7 @@ p.six {
 Always specify the "border-style" property to set the borders first.</p>
 
 </body>
-</html>
+</html> 
 ```css
 p.one {
   border-style: solid;
@@ -183,12 +180,69 @@ p.three {
 </head>
 <body>
 
-<h2>The border-width Property</h2>
 <p>The border-width property can have from one to four values (for the top border, right border, bottom border, and the left border):</p>
 
 <p class="one">Some text.</p>
 <p class="two">Some text.</p>
 <p class="three">Some text.</p>
+
+</body>
+</html>
+### CSS Border Color
+The `border-color` property is used to set the color of the four borders.  
+  
+The color can be set by:  
+  
+- `name` - specify a color name, like "red"  
+- `HEX` - specify a HEX value, like "#ff0000"  
+- `RGB` - specify a RGB value, like "rgb(255,0,0)"  
+- `HSL` - specify a HSL value, like "hsl(0, 100%, 50%)"  
+- `transparent`  
+  
+```css
+p.one {
+  border-style: solid;
+  border-color: red;
+}
+
+p.two {
+  border-style: solid;
+  border-color: green;
+}
+
+p.three {
+  border-style: dotted;
+  border-color: blue;
+}
+```
+<html>
+<head>
+<style>
+p.one {
+  border-style: solid;
+  border-color: red;
+}
+
+p.two {
+  border-style: solid;
+  border-color: green;
+} 
+
+p.three {
+  border-style: dotted;
+  border-color: blue;
+} 
+</style>
+</head>
+<body>
+
+<p>This property specifies the color of the four borders:</p>
+
+<p class="one">A solid red border</p>
+<p class="two">A solid green border</p>
+<p class="three">A dotted blue border</p>
+
+<p><b>Note:</b> The "border-color" property does not work if it is used alone. Use the "border-style" property to set the borders first.</p>
 
 </body>
 </html>
