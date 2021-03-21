@@ -48,8 +48,8 @@ div {
 ```
 ### CSS Background Image
 ```css
-body {
-    background-image: url("paper.gif");
+body {
+    background-image: url("paper.gif");
 }
 ```
 ### repeat 属性 
