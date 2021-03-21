@@ -138,7 +138,7 @@ p.six {
 <p class="five">Some text.</p>
 <p class="six">Some text.</p>
 
-<p><b>Note:</b> The "border-width" property does not work if it is used alone. 
+<p><b>Note:</b> The `border-width` property does not work if it is used alone. 
 Always specify the "border-style" property to set the borders first.</p>
 
 </body>
@@ -242,7 +242,16 @@ p.three {
 <p class="two">A solid green border</p>
 <p class="three">A dotted blue border</p>
 
-<p><b>Note:</b> The "border-color" property does not work if it is used alone. Use the "border-style" property to set the borders first.</p>
+<p><b>Note:</b> The `border-color` property does not work if it is used alone. Use the "border-style" property to set the borders first.</p>
 
 </body>
 </html>
+### Specific Side Colors
+The `border-color` property can have from one to four values (for the top border, right border, bottom border, and the left border).   
+  
+```css
+p.one {
+  border-style: solid;
+  border-color: red green blue yellow; /* red top, green right, blue bottom and yellow left */
+}
+```
