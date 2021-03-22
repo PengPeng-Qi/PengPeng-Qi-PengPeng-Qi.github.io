@@ -136,11 +136,11 @@ p.six {
 <p class="four">Some text.</p>
 <p class="five">Some text.</p>
 <p class="six">Some text.</p>
-<p><b>Note:</b> The `border-width` property does not work if it is used alone. 
+<p><b>Note:</b> The <b>border-width</b> property does not work if it is used alone. 
 Always specify the "border-style" property to set the borders first.</p>
 </body>
 </html>
-<!--
+  
 The `border-width` property can have from one to four values (for the top border, right border, bottom border, and the left border):  
 ```css
 p.one {
@@ -158,6 +158,7 @@ p.three {
   border-width: 25px 10px 4px 35px; /* 25px top, 10px right, 4px bottom and 35px left */
 }
 ```
+
 <html>
 <head>
 <style>
@@ -187,6 +188,7 @@ p.three {
 
 </body>
 </html>
+<!--
 ### CSS Border Color
 The `border-color` property is used to set the color of the four borders.  
   
