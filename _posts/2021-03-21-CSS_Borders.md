@@ -12,6 +12,7 @@ tags:
     - Notes
 ---
 ## CSS Border Style
+The `border-style` property specifies what kind of border to display.  
 ```css
 p.dotted {border-style: dotted;}
 p.dashed {border-style: dashed;}
@@ -138,7 +139,8 @@ p.six {
 <p><b>Note:</b> The `border-width` property does not work if it is used alone. 
 Always specify the "border-style" property to set the borders first.</p>
 </body>
-</html> 
+</html>
+The `border-width` property can have from one to four values (for the top border, right border, bottom border, and the left border):  
 ```css
 p.one {
   border-style: solid;
@@ -251,6 +253,7 @@ p.one {
   border-color: red green blue yellow; /* red top, green right, blue bottom and yellow left */
 }
 ```
+  
 <html>
 <head>
 <style>
@@ -293,6 +296,7 @@ p {
 
 </body>
 </html>
+
 <ul>
 <li><b>border-style: dotted solid double dashed; </b>
 <ul><li>top border is dotted</li>
@@ -319,6 +323,7 @@ p {
 <li><b>border-style: dotted;</b><ul><li>all four borders are dotted</li></ul>
 </li>
 </ul>
+
 ```css
 /* Four values */
 p {
@@ -341,6 +346,7 @@ p {
 }
 
 ```
+
 <html>
 <head>
 <style>
@@ -404,6 +410,7 @@ p.round3 {
   border-radius: 12px;
 }
 ```
+  
 <html>
 <head>
 <style>
