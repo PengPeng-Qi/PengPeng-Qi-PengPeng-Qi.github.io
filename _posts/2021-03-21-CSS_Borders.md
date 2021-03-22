@@ -59,6 +59,7 @@ p.mix {border-style: dotted dashed solid double;}
 
 </body>
 </html>
+<!--
 ### CSS Border Width
 The `border-width` property specifies the width of the four borders.  
   
@@ -410,7 +411,7 @@ p.round3 {
   border-radius: 12px;
 }
 ```
-  
+
 <html>
 <head>
 <style>
@@ -536,3 +537,4 @@ p.round3 {
   </tr>
 </tbody>
 </table>
+-->
