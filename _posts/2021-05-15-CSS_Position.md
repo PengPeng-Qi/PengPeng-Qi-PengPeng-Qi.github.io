@@ -19,6 +19,7 @@ position 属性的五个值：
 - fixed(固定的)
 - absolute(绝对的)
 - sticky(粘贴)
+
 ### static 
 static 元素不受top、bottom、left、right的影响
 ```css
