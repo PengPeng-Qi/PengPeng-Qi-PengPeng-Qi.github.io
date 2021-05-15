@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Position
-date:       2020-05-15
+date:       2021-05-15
 author:     PengPengQi
 header-img: img/BackGround.png
 catalog: true
@@ -11,6 +11,7 @@ tags:
     - Position
     - Notes
 ---
+
 ## CSS Position(定位)
 position 属性的五个值：
 - static(静止的)
