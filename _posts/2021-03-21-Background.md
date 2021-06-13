@@ -27,6 +27,17 @@ CSS 属性定义背景效果:
 - background-position  
 - background (shorthand property)  
 
+### 背景颜色
+```css
+body {
+    background-color: 颜色值;
+}
+
+div {
+    background-color: transparent;
+    /* transparent(透明) */
+}
+```
 ### Opacity / Transparency
 Opacity（不透明） / Transparency（透明度）（文本加背景的透明度）  
   
@@ -47,14 +58,14 @@ div {
 }
 ```
 
-### CSS Background Image
+### 背景图片
 ```css
 body {
     background-image: url("paper.gif");
 }
 ```
-
-### repeat 属性 
+> 网页上小图标一般使用背景图片来表示，因为可以结合`background-position` 调整位置
+### 背景平铺 
 如果图像只在水平方向平铺 (`repeat-x`), 页面背景会更好些：  
 ```css
 body {
@@ -72,9 +83,16 @@ body {
   
 ```css
 body {
+    /* background-position:x y; */
     background-position:right top;
+    /* background-position:20px 50px; */
+    /* background-position:20px center; */
 }    
 ```
+x、y 可以使用方位名词或者精确单位
+- 若为方位名词，和顺序无关
+- 若省略第二个值，默认第二个值为居中
+
 ### background-attachment 属性
 `background-attachment` 属性指定背景图像是应该滚动(scroll)还是固定(fixed)的（不会随页面的其余部分一起滚动）：
 ```css
@@ -89,11 +107,11 @@ body {
 取值：
 <dl>
  <dt><code>fixed</code></dt>
- <dd>   此关键属性值表示背景相对于视口固定。即使一个元素拥有滚动机制，背景也不会随着元素的内容滚动。</dd>
+ <dd>背景相对于视口固定。即使一个元素拥有滚动机制，背景也不会随着元素的内容滚动。</dd>
  <dt><code>local</code></dt>
- <dd>   此关键属性值表示背景相对于元素的内容固定。如果一个元素拥有滚动机制，背景将会随着元素的内容滚动， 并且背景的绘制区域和定位区域是相对于可滚动的区域而不是包含他们的边框。</dd>
+ <dd>背景相对于元素的内容固定。如果一个元素拥有滚动机制，背景将会随着元素的内容滚动，并且背景的绘制区域和定位区域是相对于可滚动的区域而不是包含他们的边框。</dd>
  <dt><code>scroll</code></dt>
- <dd>   此关键属性值表示背景相对于元素本身固定， 而不是随着它的内容滚动（对元素边框是有效的）。</dd>
+ <dd>背景图像随着对象内容滚动。</dd>
 </dl>
 
 ### 背景简写
