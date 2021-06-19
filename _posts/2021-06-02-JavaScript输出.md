@@ -47,3 +47,7 @@ tags:
   console.log(5 + 6)
 </script>
 ```
+## prompt(info)
+浏览器弹出输入框，用户可以输入
+
+<img src="../img/prompt.png" alt="prompt效果显示" />
