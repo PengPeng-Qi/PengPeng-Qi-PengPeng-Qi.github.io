@@ -20,7 +20,7 @@ JavaScript是一门运行在客户端的**脚本语言**。
 ## 浏览器执行JS
 浏览器分为两个部分：渲染引擎、JS引擎。
   
-**渲染引擎**：用来解析HTML与CSS，俗称内核，比如 chrome 浏览器的 blink ，老版本的 webkit。
+**渲染引擎**：用来解析HTML与CSS，俗称**内核**，比如 chrome 浏览器的 blink ，老版本的 webkit。国内浏览器一般采用Webkit/Blink 内核
   
 **JS引擎**：也称为 JS 解释器。 用来读取网页中的JavaScript代码，对其处理后运行，比如 chrome  浏览器的 V8
 ## JavaScript的组成
