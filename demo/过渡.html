@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>过渡</title>
+  <style>
+    .bar {
+      margin: 100px auto;
+      width: 150px;
+      height: 15px;
+      border-radius: 7px;
+      border: 1px solid red;
+    }
+
+    .bar_in {
+      height: 100%;
+      width: 50%;
+      background-color: red;
+      border-radius: 6.5px;
+      transition: width 1s;
+    }
+    .bar_in:hover {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bar">
+    <div class="bar_in"></div>
+  </div>
+</body>
+
+</html>
