@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>响应式导航栏</title>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+    ul li {
+      list-style-type: none;
+      float: left;
+      width: 100px;
+      height: 30px;
+      background-color: aquamarine;
+      border: 1px solid #ccc;
+      text-align: center;
+      line-height: 30px;
+    }
+    @media screen and (min-width:800px) {
+      .nav {
+        width: 800px;
+        /* clear: both; */
+        margin: 0px auto;
+      }
+    }
+    @media screen and (max-width:800px) {
+      .nav {
+        width: 100%;
+      }
+      .nav ul li {
+        width: 33.3%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <ul>
+      <li>导航栏1</li>
+      <li>导航栏2</li>
+      <li>导航栏3</li>
+      <li>导航栏4</li>
+      <li>导航栏5</li>
+      <li>导航栏6</li>
+      <li>导航栏7</li>
+      <li>导航栏8</li>
+    </ul>
+  </div>
+
+</body>
+
+</html>
