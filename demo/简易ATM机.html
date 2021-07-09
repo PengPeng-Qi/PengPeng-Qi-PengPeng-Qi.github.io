@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>简易ATM机</title>
+</head>
+
+<body>
+  <script>
+    var sum = 0, userNum = 0;
+    do {
+      var num = prompt('请输入您要的操作：\n1.存钱\n2.取钱\n3.显示余额\n4.退出');
+      if (num == 1) {
+        userNum = prompt('请您输入存的钱数');
+        sum += userNum - 0;
+        alert('您现在的钱数是：' + sum);
+      } else if (num == 2) {
+        userNum = prompt('请您输入取的钱数');
+        sum -= userNum;
+        alert('您现在的钱数是：' + sum);
+      } else if (num == 3) {
+        alert('您现在的钱数是：' + sum);
+      }
+    } while (num != 4)
+  </script>
+</body>
+
+</html>
