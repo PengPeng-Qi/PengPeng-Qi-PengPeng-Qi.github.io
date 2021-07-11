@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>分时显示不同图片</title>
+</head>
+
+<body>
+  <img src="media/s.gif" alt="">
+  <div>上午好</div>
+  <script>
+    // 获取元素
+    var img = document.querySelector('img');
+    var div = document.querySelector('div');
+    // 得到当前小时数
+    var date = new Date();
+    var h = date.getHours();
+
+    if (h < 12) {
+      img.src = 'media/s.gif';
+      div.innerHTML = '好好写代码';
+    } else if (h < 18) {
+      img.src = 'media/x.gif';
+      div.innerHTML = '好好写代码';
+    } else {
+      img.src = 'media/w.gif';
+      div.innerHTML = '好好写代码';
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>密码验证</title>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .register {
+      margin: 100px auto;
+      width: 600px;
+      height: 40px;
+    }
+
+    .register .ipt {
+      width: 300px;
+      height: 20px;
+      border: 1px splid #000;
+      outline: 0;
+    }
+
+    .message {
+      color: #999;
+      line-height: 40px;
+    }
+
+    .message1 {
+      color: red;
+      line-height: 40px;
+    }
+    .message2 {
+      color: green;
+      line-height: 40px;
+    }
+
+    .message::before {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      width: 15px;
+      padding-left: 4px;
+      height: 15px;
+      background: url(media/mess.png) no-repeat;
+    }
+
+    .message1::before {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      width: 15px;
+      padding-left: 4px;
+      height: 15px;
+      background: url(media/wrong.png) no-repeat;
+    }
+
+    .message2::before {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      width: 15px;
+      padding-left: 4px;
+      height: 15px;
+      background: url(media/right.png) no-repeat;
+    }
+
+    .wrong {
+      color: red;
+      border: 1px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="register">
+    <input type="password" class="ipt" />
+    <span class="message">请输入6~15位密码</span>
+  </div>
+  <script>
+    var ipt = document.querySelector('.ipt');
+    var span = document.querySelector('span');
+
+    ipt.onblur = function () {
+      if (this.value.length < 6 || this.value.length > 15) {
+        this.className = 'ipt wrong';
+        span.className = 'message1';
+        span.innerHTML = '你输入的位数不对，要求6～15位';
+      } else {
+        this.className = 'ipt';
+        span.className = 'message2';
+        span.innerHTML = '登录成功';
+      }
+    }
+  </script>
+</body>
+
+</html>

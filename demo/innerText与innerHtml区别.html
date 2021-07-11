@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>innerText与innerHTML区别</title>
+</head>
+<body>
+  <div></div>
+  <p></p>
+  <script>
+    var div = document.querySelector('div');
+    var p = document.querySelector('p');
+    div.innerText = '<strong>今天是：</strong> 2021';
+    p.innerHTML = '<strong>今天是：</strong> 2021';
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>简易留言板</title>
+  <style>
+    textarea {
+      width: 200px;
+      height: 120px;
+      vertical-align: middle;
+    }
+    li {
+      width: 200px;
+      list-style-type: none;
+    }
+    a {
+      float: right;
+    }
+  </style>
+</head>
+<body>
+  <textarea name="" id="" cols="30" rows="10"></textarea>
+  <button>发布</button>
+  <div class="box">
+    <ul>
+      <li></li>
+    </ul>
+  </div>
+  <script>
+    var text = document.querySelector('textarea');
+    var btn = document.querySelector('button');
+    var ul = document.querySelector('ul');
+
+    btn.onclick = function() {
+      if (text.value == '') {
+        alert('你没有输入内容');
+      }else {
+        var li = document.createElement('li');
+        // javascript: ;可阻止链接跳转
+        li.innerHTML = text.value + "<a href='javascript:;'>删除</a>";
+        // ul.appendChild(li);
+        ul.insertBefore(li, ul.children[0]);
+        // 删除元素
+        var as = document.querySelectorAll('a');
+        for (var i = 0; i < as.length; i++) {
+          as[i].onclick = function() {
+            ul.removeChild(this.parentNode);
+          }
+        }
+      }
+    }
+
+  </script>
+</body>
+</html>

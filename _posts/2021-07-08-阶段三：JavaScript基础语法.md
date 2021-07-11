@@ -335,6 +335,7 @@ console.log(date.getDate());     // 10 返回的是几号
 console.log(date.getDay());      // 6  返回的是周几，周一到周六1 -6 周日返回0
 
 // 写一个2021年7月10日星期六
+var date = new Date();
 var year = date.getFullYear();
 var month = date.getMonth() + 1;
 var dates = date.getDate();

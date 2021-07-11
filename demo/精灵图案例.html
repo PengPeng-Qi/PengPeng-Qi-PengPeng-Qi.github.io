@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+    div {
+      margin: 100px auto;
+      width: 224px;
+      height: 200px;
+    }
+    ul li {
+      list-style-type: none;
+      width: 24px;
+      height: 24px;
+      /* 为什么此处不能使用padding */
+      /* padding: 15px; */
+      margin: 15px;
+      float: left;
+      background: url(media/sprite.png) no-repeat;
+    }
+  </style>
+
+</head>
+<body>
+  <div>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  <script>
+    var lis = document.querySelectorAll('li');
+    for (var i = 0; i < lis.length; i++) {
+      var len = 44 * i;
+      lis[i].style.backgroundPosition = '0 -' + len + 'px';
+    }
+  </script>
+</body>
+</html>
