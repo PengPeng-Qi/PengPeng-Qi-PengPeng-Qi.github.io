@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      JS基础语言
+title:      JS基础语法
 date:       2021-07-08
 author:     PengPengQi
 header-img: img/BackGround.png
