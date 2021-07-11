@@ -1,3 +1,14 @@
+---
+layout:     post
+title:      JS基础语言
+date:       2021-07-08
+author:     PengPengQi
+header-img: img/BackGround.png
+catalog: true
+tags:
+    - JavaScript
+    - Notes
+---
 #### 计算机编程基础
 可见[计算机编程基础](/2021/06/18/计算机编程基础/)
 #### JavaScript介绍
