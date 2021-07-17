@@ -1,5 +1,5 @@
 function getCommentList() {
-  $.get('http://www.liulongbin.top:3006/api/cmtlist', {id: 1}, function(res){
+  $.get('https://www.liulongbin.top:3006/api/cmtlist', {id: 1}, function(res){
     if (res.status !== 200){
       alert('获取资源失败!');
     }
@@ -18,7 +18,7 @@ $(function(){
   $('#formAddCmt').on('submit', function(e){
     e.preventDefault();
     var data = $(this).serialize();
-    $.post('http://www.liulongbin.top:3006/api/addcmt', data, function (res) {
+    $.post('https://www.liulongbin.top:3006/api/addcmt', data, function (res) {
     if (res.status !== 201) {
       return alert('发表评论失败！');
     }
