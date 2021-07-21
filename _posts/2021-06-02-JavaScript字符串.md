@@ -67,7 +67,7 @@ var pos = str.search("China");
 
 ## 提取字符串
 ### slice 
-`slice()` 提取字符串的某个部分并在新字符串中返回被提取的部分
+`slice(start, end)` 提取字符串的某个部分并在新字符串中返回被提取的部分
 ```js
 var str = "Apple, Banana, Mango";
 var res = str.slice(7, 13);
@@ -88,7 +88,7 @@ var res1 = str.slice(-13);
 // res:Banana, Mango
 // res1:Banana, Mango
 ```
-### substr 
+### substr(start, length) 重点 
 `substr()` 类似于 `slice()`， 不同之处在于第二个参数规定被提取部分的长度
 
 ```js
@@ -100,7 +100,7 @@ var res = str.substr(7, 6);
 若省略第二个参数，则该`substr()` 将裁剪字符串的剩余部分，若首个参数为负，则从字符串的结尾计算位置。
 ## 替换字符串内容
 ### replace
-`replace()` 方法用另一个值替换在字符串中指定的值
+`replace(被替换的字符串, 要替换为的字符串)` 方法用另一个值替换在字符串中指定的值
 
 ```js
 str = "Please visit Microsoft!";
@@ -148,7 +148,7 @@ var str = "Hello World!";
 str.charCodeAt(0); // 返回72
 ```
 ## 字符串转换为数组
-`split()` 字符串转换为数组
+`split()` **字符串转换为数组**
 ```js
 var txt = "a,b,c,d,e";
 var arr = txt.split(","); //用逗号分隔

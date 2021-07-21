@@ -227,8 +227,8 @@ Star.hobby = '打球';
 - 对象名['属性名']
 - 对象名.方法名()
 
-##### 遍历对象
-`for...in`遍历对象, `for (变量 in 对象) {}`  
+##### 遍历对象属性
+`for...in`用于对数组或者对象的**属性**进行循环操作, `for (变量 in 对象名字) {}`  
 ```js
 var obj = {
   name: '科比',
@@ -248,7 +248,7 @@ JS语言自带的一些对象。
 Math数学对象，不是一个构造函数，所以不需要new 来调用，而是直接使用里面的属性和方法。  
 ```js
 console.log(Math.PI);                //圆周率，一个属性
-console.log(Math.max(1, 155, 88));   // 155, 一个方法
+console.log(Math.max(1, 155, 88));   // 155, 一个方法，求最大值
 console.log(Math.max(1, 155, 'hh')); // NAN 
 ```
 
@@ -320,7 +320,7 @@ console.log(arr[getRandom(0, arr.length - 1)]);
 > [猜数字，只有十次机会](/demo/猜数字十次机会.html)
 
 ##### 日期对象
-`Date()`日期对象，是一个构造函数，必须使用new 来调用创建我们的日期对象  
+`Date()`日期对象，**是一个构造函数**，**必须使用new 来调用创建我们的日期对象**  
 ```js
 var arr = new Array();           // 创建了一个数组对象
 var obj = new Object();          // 创建了一个对象实例
@@ -329,11 +329,11 @@ var obj = new Object();          // 创建了一个对象实例
 var date = new Date();
 console.log(date);
 
-// 参数常用写法 数字型：2019, 10, 01 字符串型：'2019-10-1 8:8:8'
+// 如果有参数，就返回参数里的时间，常用写法 数字型：2019, 10, 01 字符串型：'2019-10-1 8:8:8'
 var date1 = new Date(2019, 10, 01);
-console.log(date1);              // 返回的是 11月 不是 10月
+console.log(date1);              // 返回的是 11月 不是 10月 Fri Nov 01 2019 00:00:00 GMT+0800 (中国标准时间)
 var date2 = new Date('2019-10-1 8:8:8');
-console.log(date2);     
+console.log(date2);             // Tue Oct 01 2019 08:08:08 GMT+0800 (中国标准时间)
 
 // 格式化日期 年月日
 var date = new Date();
@@ -369,7 +369,9 @@ function getTime() {
   return h + ':' + m + ':' + s;
 }
 console.log(getTime());
-
+```
+`Date()`对象是基于1970年1月1日起的毫秒数
+```js
 // 获得Date总的毫秒数(时间戳)，不是当前时间的毫秒数，而是距离1970年1月1号过了多少毫秒数。
 // 1.通过valueOf() getTime()
 var date = new Date();
@@ -377,21 +379,52 @@ console.log(date.valueOf());  // 1625895493206
 console.log(date.getTime());  // 1625895493206
 
 // 2.简单的写法
-var date1 = +new Date();      // +new Date() 也可以返回总的毫秒数
+var date1 = + new Date();      // +new Date() 也可以返回总的毫秒数
 console.log(date1);           // 1625895636343 
 
 // 3.H5新增的
 console.log(Date.now());      // 1625895707552
 ```
-
-
 ##### 数组对象
 可见[数组](/2021/06/02/数组/)
+#### 字符串
+##### 根据字符返回位置
+字符串所有的方法，都**不会修改字符串本身**（字符串本身是不变的），操作完成会返回一个新的字符串。  
+```js
+// str.indeOf('要查找的字符', [起始的位置])
+var str = '改革春风吹满地, 春天来了';
+console.log(str.indexOf('春'));     // 2
+console.log(str.indexOf('春', 3));  // 9 从索引号是3的位置开始查找
+```
+> 数组也有该方法
 
-#### 基本包装类型
+##### 根据位置返回字符（重点）
+`str.charAt(index)`返回指定位置的字符,index字符串的索引号
+```js
+var str = 'andy';
+console.log(str.charAt(3));         // y
+console.log(typeof(str.charAt(3))); // string
+
+// 遍历所有字符
+for (var i = 0; i < str.length; i++) {
+  console.log(str.charAt(i));
+}
+// a n d y
+```
+`str.charCodeAt(index)`返回对应索引号的字符的ASCII值，目的：判断用户按下了那个键
+```js
+var str = 'andy';
+console.log(str.charCodeAt(0)); // 97
+```
+`str[index]`H5新增的，用于获取指定位置处字符
+```js
+var str = 'andy';
+console.log(str[0]); // a
+```
+##### 基本包装类型
 复杂数据类型才有属性和方法。  
 简单数据类型为什么会有length属性。  
-基本包装类型：把简单数据类型包装成为了复杂数据类型。  
+**基本包装类型**：把简单数据类型包装成为了复杂数据类型。  
 ```js
 var str = 'andy';
 console.log(str.length); // 4
@@ -406,38 +439,6 @@ temp = null;
 ```
 为了方便操作，js还提供了三种特殊的引用类型：`String`、`Number`、`Boolean`
 
-#### 字符串
-##### 根据字符返回位置
-字符串所有的方法，都不会修改字符串本身（字符串本身是不变的），操作完成会返回一个新的字符串。  
-```js
-// str.indeOf('要查找的字符', [起始的位置])
-var str = '改革春风吹满地, 春天来了';
-console.log(str.indexOf('春'));     // 2
-console.log(str.indexOf('春', 3));  // 9 从索引号是3的位置开始查找
-```
-##### 根据位置返回字符
-`charAt(index)`位置以字符串的形式返回字符
-```js
-var str = 'andy';
-console.log(str.charAt(3));         // y
-console.log(typeof(str.charAt(3))); // string
-
-// 遍历所有字符
-for (var i = 0; i < str.length; i++) {
-  console.log(str.charAt(i));
-}
-// a n d y
-```
-`charCodeAt(index)`返回对应索引号的字符的ASCII值 目的：判断用户按下了那个键
-```js
-var str = 'andy';
-console.log(str.charCodeAt(0)); // 97
-```
-`str[index]`H5新增的
-```js
-var str = 'andy';
-console.log(str[0]); // a
-```
 ##### 字符串的不可变性
 字符串内容不会随意发生改变，会另开一个内存空间，重新指向新开的空间，原空间的值依然存在，故不要随意大量拼接字符串，会消耗大量资源。
 
@@ -456,21 +457,35 @@ console.log(typeof timer); // object
 - 简单数据类型放在**栈**里面，里面直接开辟了一个新空间，存放的是值
 - 复杂数据类型放在**堆**里面，在栈里面存放地址，用十六进制表示，然后这个地址指向堆里面的数据
   
-简单类型传参：字符串开辟新空间，数字直接重新赋值
+**简单类型传参**：函数的形参可以看作一个变量，当我们把一个值类型变量作为参数传给函数的形参时，其实是把**变量在栈空间里的值复制了一份给形参，那么在方法内部对形参做任何修改，都不会影响到外部变量**。字符串开辟新空间，数字直接重新赋值。  
+  
+```js
+function fn(a) {
+  a++;
+  console.log(a);  // 11
+}
+var x = 10;
+fn(x);
+console.log(x);   // 10
+```
+**复杂类型穿参数**：函数的形参也可以看作是一个变量，当我们把引用类型变量传给形参时，其实是把**变量在栈空间里保存的堆地址复制给了形参**，形参和实参其实保存的是同一个堆地址，所以**操作的是同一个对象**。  
 复杂数据类型：
 ```js
 function Person(name) { 
-  this.name = name;
+  this.name = name; // 在堆中赋值 name = 刘德华
 }
-function f1(x) { // x = p
-console.log(x.name); // 2. 这个输出什么 ? 刘德华
-x.name = "张学友";
-console.log(x.name); // 3. 这个输出什么 ? 张学友
+
+function f1(x) { // x = p，相当于把 p的地址复制给 x，所以x也指向p指向的堆
+  console.log(x.name); // 2. 刘德华
+  x.name = "张学友";    // 对堆里面的name 重新赋值，改为张学友
+  console.log(x.name); // 3. 张学友 
 }
-var p = new Person("刘德华"); 
-console.log(p.name); // 1. 这个输出什么 ? 刘德华
+
+var p = new Person("刘德华");  // 有 new 复杂数据类型，在栈里面开辟一个空间， p指向地址，地址指向堆里面这个实例化对象
+console.log(p.name); // 1. 刘德华
+
 f1(p);
-console.log(p.name); // 4. 这个输出什么 ? 张学友
+console.log(p.name); // 4. 张学友，由于堆里面的name被重新赋值，所以改为了张学友
 ```
 更多可见：
 - [计算机编程基础](/2021/06/18/计算机编程基础/)  
