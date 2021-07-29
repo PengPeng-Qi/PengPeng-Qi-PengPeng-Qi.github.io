@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../../jQuery/jQuery.min.js"></script>
+</head>
+<body>
+  <div>
+    <button class="GET">GET请求</button>
+    <button class="POST">POST请求</button>
+    <button class="JSONP">JSONP</button>
+  </div>
+
+  <script>
+    // 使用的接口在写接口文件夹下，配置cros解决了跨域问题
+    $('.GET').on('click', function(){
+      $.ajax({
+        type: 'GET',
+        url: 'http://127.0.0.1/api/get',
+        data: {name: 'zs', age: 12},
+        success: function(res){
+          console.log(res);
+        }
+      })
+    })
+    $('.POST').on('click', function(){
+      $.ajax({
+        type: 'POST',
+        url: 'http://127.0.0.1/api/post',
+        data: {name: 'wz', age: 35},
+        success: function(res){
+          console.log(res);
+        }
+      })
+    })
+    $('.JSONP').on('click', function(){
+      $.ajax({
+        type: 'POST',
+        url: 'http://127.0.0.1/api/jsonp',
+        dataType: 'jsonp',
+        success: function(res){
+          console.log(res);
+        }
+      })
+    })
+  </script>
+</body>
+</html>
