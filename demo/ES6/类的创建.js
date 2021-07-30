@@ -1,3 +1,4 @@
+/* 类的创建的测试文件 */
 // 注意类后面没有()
 // class Star{
 //   constructor(name){
