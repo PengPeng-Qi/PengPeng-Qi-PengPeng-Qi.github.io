@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>点击</button>
+  <script>
+    var that, thatFunction;
+    class Star {
+      constructor(uname, age) {
+        // constructor里面的this指向的是创建的实例对象ldh
+        that = this;
+
+        this.uname = uname;
+        this.age = age;
+        // 如果想在new的时候调用方法，可在constructor里面调用
+        // sing(); 注意，sing()必须使用实例化this调用
+        // this.sing();
+
+        // 注意this实例化
+        // this.btn = document.querySelector('button');
+        // this.btn.onclick = this.sing;
+        // 注意this.sing后没有没有加this.sing()，因为加了()会立马调用，且值为刘德华，我们想点击之后再调用所以不加()
+
+      }
+      sing() {
+        // sing()里面需要constructor实例化里面的uname
+        // console.log(uname); 
+        // 当上面btn不存在没有调用sing()时，sing()里面没有uname， this指向实例化，所以这里使用this.uname
+        // console.log(this.uname);
+
+        // 当上面btn存在且调用sing()时，sing()里面的this指向btn这个按钮，因为这个按钮调用了这个函数
+        // console.log(this);  // <button>点击</button>
+        // console.log(this.uname); undefined,因为btn里面没有uname，如果想使用constructor里面的uname，可以使用上面存储的that,that存储的是constructor里面的this
+        // console.log(that.uname);
+      }
+      dance() {
+        // 这个方法里面的this指向的也是创建的实例对象ldh
+        thatFunction = this;
+      }
+    }
+    var ldh = new Star('刘德华');
+    console.log(that === ldh); // true
+    console.log(thatFunction === ldh); // true
+    // ldh.sing();
+  </script>
+</body>
+</html>
