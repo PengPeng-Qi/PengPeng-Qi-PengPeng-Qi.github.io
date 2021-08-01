@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/vue.js"></script>
+  <style>
+    input {
+      margin-bottom: 15px;
+    }
+
+    ul {
+      margin: 0px;
+      padding: 0px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h2>人员列表</h2>
+    <input type="text" v-model="serach">
+    <button @click="sortType = 2">升序</button>
+    <button @click="sortType = 1">降序</button>
+    <button @click="sortType = 0">不排序</button>
+    <ul>
+      <li v-for="(item, index) in filpersons" ::key="item.id">
+        {{item.name}} -- {{item.age}} -- {{item.gender}}
+      </li>
+    </ul>
+  </div>
+</body>
+<script>
+  /* watch实现 */
+  /*   new Vue({
+      el: '#app',
+      data: {
+        serach: '',
+        persons: [
+            {id: '001', name: '周杰伦',age: 18,gender: '男'},
+            {id: '002',name: '马冬梅',age: 20,gender: '女'},
+            {id: '003',name: '周冬雨',age: 19,gender: '女'},
+            {id: '004',name: '温兆伦',age: 23,gender: '男'}
+        ],
+        filpersons: []
+      },
+      watch: {
+        serach:{
+          immediate: true,
+          handler(newValue) {
+            this.filpersons = this.persons.filter((p) => {
+              return p.name.indexOf(newValue) !== -1
+            })
+          }
+        }
+      }
+    }) */
+  new Vue({
+    el: '#app',
+    data: {
+      serach: '',
+      sortType: 0,
+      persons: [
+        { id: '001', name: '周杰伦', age: 18, gender: '男' },
+        { id: '002', name: '马冬梅', age: 20, gender: '女' },
+        { id: '003', name: '周冬雨', age: 19, gender: '女' },
+        { id: '004', name: '温兆伦', age: 23, gender: '男' }
+      ],
+    },
+    computed: {
+      filpersons() {
+        const arr = this.persons.filter((p) => {
+          return p.name.indexOf(this.serach) !== -1
+        })
+        if (this.sortType) {
+          arr.sort((p1, p2) => {
+            return this.sortType == 1 ? p2.age - p1.age : p1.age - p2.age
+          })
+        }
+        return arr;
+      }
+    }
+  })
+</script>
+
+</html>
