@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/PengPengQ.js"></script>
+</head>
+
+<body>
+  <script>
+    PengPengQ({
+      method: 'GET',
+      url: 'http://www.liulongbin.top:3006/api/getbooks',
+      data: {
+        id: 1
+      },
+      success: function (res) {
+        console.log(res)
+      }
+    })
+
+    /* 测试成功 */
+    /* {status: 200, msg: "获取图书列表成功", data: Array(1)} */
+  </script>
+</body>
+
+</html>

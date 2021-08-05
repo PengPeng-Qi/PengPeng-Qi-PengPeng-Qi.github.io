@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form action="" id="form1">
+    <input type="text" name="uname">
+    <input type="password" name="password">
+    <button type="submit">提交</button>
+  </form>
+  <script>
+    var form = document.querySelector('#form1')
+
+    // 监听表单元素的submit事件
+    form.addEventListener('submit', function (e) {
+      e.preventDefault()
+
+      // 根据form表单创建FormData对象，会自动将表单数据填充到FormData对象中
+      var fd = new FormData(form)
+
+      var xhr = new XMLHttpRequest()
+      xhr.open('POST', 'http://www.liulongbin.top:3006/api/formdata')
+      xhr.send(fd)
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          console.log(xhr.responseText)
+        }
+      }
+      /* {"message":"测试FormData表单提交成功！","data":{"uname":"admin","password":"123456"}} */
+    })
+  </script>
+</body>
+
+</html>
