@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/jQuery.min.js"></script>
+  <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+</head>
+
+<body>
+  <input type="file" id="files">
+  <button type="submit" id="btn">上传文件</button>
+  <hr>
+  <div class="spinner-border" role="status" id="loading" style="display: none;">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <img src="" alt="" id="img">
+
+
+  <script>
+    $(function () {
+      $('#btn').on('click', function () {
+        // 转化为原生DOM
+        const files = $('#files')[0].files
+
+        // 判断是否显示文件
+        if (files.length <= 0) {
+          return alert('请选择文件')
+        }
+
+        const fd = new FormData()
+        fd.append('avatar', files[0])
+        console.log(fd)
+
+        $(document).ajaxStart(function () {
+          $('#loading').show()
+        })
+        $(document).ajaxStop(function () {
+          $('#loading').hide()
+        })
+
+
+        $.ajax({
+          method: 'POST',
+          url: 'http://www.liulongbin.top:3006/api/upload/avatar',
+          data: fd,
+          // 不修改 Content- Type 属性，使用 FormData 默认的 Content - Type 值
+          contentType: false,
+          // 不对 FormData 中的数据进行 url 编码，而是将 FormData 数据原样发送到服务器
+          processData: false,
+          success: function (res) {
+            console.log(res)
+            $('#img')[0].src = 'http://www.liulongbin.top:3006' + res.url
+          }
+        })
+      })
+    })
+  </script>
+</body>
+
+</html>
