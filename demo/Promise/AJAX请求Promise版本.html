@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <h2>获取笑话Promise版</h2>
+      <hr>
+      <button type="button" class="btn btn-outline-primary">点击获取笑话</button>
+    </div>
+  </div>
+
+  <script>
+    const btn = document.querySelector('button')
+
+    btn.addEventListener('click', function () {
+      const p = new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest()
+
+        xhr.open('GET', 'https://api.apiopen.top/getJoke')
+        xhr.send()
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4) {
+            // 注意readState 和status要分开写
+            if (xhr.status == 200) {
+              // console.log('请求成功')
+              resolve(xhr.response)
+            } else {
+              // console.log('请求失败')
+              reject(xhr.status)
+            }
+          }
+        }
+      })
+      
+      p.then(value => {
+        console.log('请求成功' + value)
+      }, reason => {
+        console.log('请求失败' + reason)
+      })
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <h2>抽奖活动Promise版</h2>
+      <hr>
+      <button type="button" class="btn btn-outline-primary">点击抽奖</button>
+    </div>
+  </div>
+  <script>
+    // 生产随机数
+    function rand(m, n) {
+      return Math.ceil(Math.random() * (n - m + 1) + m - 1)
+    }
+
+    const btn = document.querySelector('button')
+
+    btn.addEventListener('click', function () {
+      // resolve 解决  函数类型的数据
+      // reject  拒绝  函数类型的数据
+      const p = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          // 30%
+          let n = rand(1, 100)
+          if (n <= 30) {
+            resolve(n);  // 将 Promise 对象的状态设置为 成功
+          } else {
+            reject(n);   // 将 Promise 对象的状态设置为 失败
+          }
+        }, 1000)
+      })
+
+      // 调用 then 方法
+      p.then((value) => {
+        alert('恭喜你🎉中奖了，中奖号码是' + value)
+      }, (reason) => {
+        alert('再接再厉你的号码是' + reason)
+      })
+    })
+  </script>
+</body>
+
+</html>
