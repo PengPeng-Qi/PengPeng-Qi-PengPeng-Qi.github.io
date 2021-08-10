@@ -1,0 +1,23 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: #fff;
+  color: rgb(47, 56, 65);
+}
+
+h1 {
+  margin: 100px auto;
+  text-align: center;
+}
+
+button {
+  margin: 100px auto;
+}
+
+.dark-mode {
+  background-color: rgb(47, 56, 65);
+  color: #fff
+}
