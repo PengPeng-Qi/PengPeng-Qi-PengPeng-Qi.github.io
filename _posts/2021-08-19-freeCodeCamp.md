@@ -64,18 +64,6 @@ console.log(someObj[someProp]);
   
 > 注意，当使用变量名访问属性时，我们**没有使用引号包裹它，因为我们正在使用的是变量的值，而不是变量的名字**。
 
-#### 测试对象的属性
-有时检查一个对象属性是否存在是非常有用的。 我们可以用对象的 .hasOwnProperty(propname) 方法来检查对象是否有指定的属性。 .hasOwnProperty() 找到该属性时返回 true，找不到该属性时返回 false。
-```js
-var myObj = {
-  top: "hat",
-  bottom: "pants"
-};
-myObj.hasOwnProperty("top");
-myObj.hasOwnProperty("middle");
-```
-第一个`hasOwnProperty` 返回`true`，第二个返回`false`。
-
 #### parseInt()
 `parseInt(string, radix)` 解析一个字符串并返回指定基数的十进制整数，`radix` 是`2-36`之间的整数，表示被解析字符串的基数。  
   
@@ -125,6 +113,25 @@ const [a, b] = [1, 2, 3, 4, 5, 6];
 console.log(a, b); // a:1 b:2
 /* 注意是数组 */
 ```
+#### export default
+不能将`export default` 与`var、let 或 const` 同时使用。
+#### 测试对象是否具有某个属性
+有时检查一个对象属性是否存在是非常有用的。 我们可以用对象的 `.hasOwnProperty`(propname) 方法来检查对象是否有指定的属性。 `.hasOwnProperty()` 找到该属性时返回 true，找不到该属性时返回 false。
+```js
+var myObj = {
+  top: "hat",
+  bottom: "pants"
+};
+myObj.hasOwnProperty("top");
+myObj.hasOwnProperty("middle");
+```
+第一个`hasOwnProperty` 返回`true`，第二个返回`false`。  
+  
+也可以使用`in`关键字：
+```js
+'Alan' in users;
+/* true or false */
+```
 ### 正则表达式
 JavaScript 中有多种使用正则表达式的方法。测试正则表达式的一种方法是使用`.test()` 方法。`.test()`方法会把**编写的正则表达式和字符串（即括号内的内容）匹配，如果成功匹配到字符，则返回true，反之，返回false。**
 ```js
@@ -134,10 +141,152 @@ testRegex.test(testStr);
 /* test 方法会返回 true。 */
 ```
 ### 基础数据结构
-#### splice()
+#### 数组方法总结
+##### 不改变原数组
+###### concat()
+`concat()` 方法用于合并两个或多个数组。此方法**不会更改现有数组**，而是返回一个新数组。
+###### every()
+`every()` 方法测试一个数组内的所有元素是否都能通过某个指定函数的测试。它返回一个布尔值。
+```js
+array1.every((currentValue) => currentValue < 40)
+```
+###### filter()
+`filter()` 方法创建一个**新数组**, 其包含通过所提供函数实现的测试的所有元素。 
+###### forEach()
+`forEach()` 方法对数组的每个元素执行一次给定的函数。
+```js
+const array1 = ['a', 'b', 'c'];
+
+array1.forEach(element => console.log(element));
+```
+###### indexOf()
+`indexOf()`方法返回在数组中可以找到一个给定元素的第一个索引，如果不存在，则返回`-1`
+###### join()
+**不改变原数组**：`join()` 方法将一个数组的所有元素连接成一个字符串并返回这个字符串。如果数组只有一个项目，那么将返回该项目而不使用分隔符。
+```js
+const elements = ['Fire', 'Air', 'Water'];
+
+console.log(elements.join());
+// expected output: "Fire,Air,Water"
+
+console.log(elements.join(''));
+// expected output: "FireAirWater"
+
+console.log(elements.join('-'));
+// expected output: "Fire-Air-Water"
+```
+###### map()
+`map()` 方法**创建一个新数组**，其结果是该数组中的每个元素是调用一次提供的函数后的返回值。
+```js
+const array1 = [1, 4, 9, 16];
+
+// pass a function to map
+const map1 = array1.map(x => x * 2);
+
+console.log(map1);
+// expected output: Array [2, 8, 18, 32]
+```
+###### splice()
 `splice()` 的第一个参数代表从数组中的哪个索引开始移除元素，而第二个参数表示要从数组中的这个位置开始删除多少个元素。
-#### slice()
-**不会改变原数组**: `slice()`只接收2 个输入参数：第一个是开始提取元素的位置（索引），第二个是提取元素的结束位置（索引）。提取的元素中不包括第二个参数所对应的元素。
+###### slice()
+**不会改变原数组**: `slice()` 方法返回一个新的数组对象，这一对象是一个由`begin` 和`end` 决定的**原数组的浅拷贝**（包括 begin，不包括end）。
+###### reduce()
+`reduce()` 方法对数组中的每个元素执行一个由您提供的`reducer`函数(升序执行)，将其结果汇总为单个返回值。
+```js
+const array1 = [1, 2, 3, 4];
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+// 1 + 2 + 3 + 4
+console.log(array1.reduce(reducer));
+// expected output: 10
+
+// 5 + 1 + 2 + 3 + 4
+console.log(array1.reduce(reducer, 5));
+// expected output: 15
+```
+###### some()
+`some()` 方法测试数组中**是不是至少有1个元素通过了被提供的函数测试**。它返回的是一个Boolean类型的值。
+```js
+const array = [1, 2, 3, 4, 5];
+
+// checks whether an element is even
+const even = (element) => element % 2 === 0;
+
+console.log(array.some(even));
+// expected output: true
+```
+##### 改变原数组
+###### pop()
+**改变原数组**：`pop()`方法从数组中删除最后一个元素，并返回该元素的值。
+###### push()
+**改变原数组**：`push()` 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。
+###### shift()/unshift()
+**改变原数组**：`shift()` 方法从数组中删除第一个元素，并返回该元素的值。  
+  
+**改变原数组**：`unshift()` 方法将一个或多个元素添加到数组的开头，并返回该数组的新长度
+###### reverse()
+**改变原数组**：`reverse()` 方法将数组中元素的位置颠倒，并返回该数组。
+```js
+array.splice(start[, deleteCount[, item1[, item2[, ...]]]])
+```
+###### sort()
+**会改变原数组**：`sort()` 方法用原地算法对数组的元素进行排序，并返回数组。
+###### splice()
+**改变原数组**：`splice()` 方法通过**删除或替换现有元素或者原地添加新的元素来修改数组**,并以数组形式返回被修改的内容。
+###### Array.prototype.keys()/Array.prototype.values()
+`values()` 方法返回一个新的 Array Iterator 对象，该对象包含数组每个**索引的值**
+```js
+const array1 = ['a', 'b', 'c'];
+const iteratorKey = array1.keys();
+const iteratorValue = array1.values();
+
+for (const key of iteratorKey) {
+  console.log(key);
+}
+// expected output: 0
+// expected output: 1
+// expected output: 2
+
+for (const value of iteratorValue) {
+  console.log(value);
+}
+// expected output: "a"
+// expected output: "b"
+// expected output: "c"
+```
+#### 字符串方法总结
+##### slice()
+`slice()` 方法提取某个字符串的一部分，并返回一个新的字符串，且**不会改动原字符串**。`str.slice(beginIndex[, endIndex])`
+##### split()
+转换为数组，**不会改变原字符串**
+##### charAt()
+返回知道索引的字符`str.charAt(index)`
+##### concat()
+**不改变原字符串**：将一个或多个字符串与原字符串连接合并，形成一个新的字符串`str.concat(str2, [, ...strN])`
+##### repeat()
+`repeat()` 构造并**返回一个新字符串,不改变原字符串**，该字符串包含被连接在一起的指定数量的字符串的副本。`str.repeat(count)`
+##### trim()
+**不改变原字符串**，`trim()` 方法会从一个字符串的**两端删除空白字符**。
+##### indexOf()
+`indexOf()` 方法返回调用它的`String` 对象中第一次出现的指定值的索引，从`fromIndex` 处进行搜索。如果未找到该值，则返回 -1。
+##### substring()
+**不会改变原字符串**：`substring()` 方法返回一个字符串在开始索引到结束索引之间的一个子集 `str.substring(indexStart[, indexEnd])`
+##### toUpperCase()/toLowerCase()
+`toUpperCase()`方法将调用该方法的字符串转为大写形式并返回，**不改变原字符串**
+### 面向对象编程
+#### instanceof
+检查一个对象是否是构造函数的实例对象
+```js
+let Bird = function(name, color) {
+  this.name = name;
+  this.color = color;
+  this.numLegs = 2;
+}
+
+let crow = new Bird("Alexis", "black");
+
+crow instanceof Bird;  // true
+```
 ## 前端开发库
 ### React
 JSX 是 JavaScript 的语法扩展，所以实际上可以直接在 JSX 中编写 JavaScript。 要做到这一点，只需在花括号中包含希望被视为 JavaScript 的代码：{ 'this is treated as JavaScript code' }（这被视为 JavaScript 代码）。
