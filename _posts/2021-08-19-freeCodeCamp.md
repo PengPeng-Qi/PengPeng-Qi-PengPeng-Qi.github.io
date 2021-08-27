@@ -69,26 +69,30 @@ console.log(someObj[someProp]);
   
 `parseInt('123', 5)` 将'123'看作5进制数，返回十进制数`38 => 1*5^2 + 2*5^1 + 3*5^0 = 38`
 #### 递归
-使用递归代替循环
-递归是函数调用自身的操作。 为了便于理解，有如下任务：计算数组内元素前 n 的元素乘积。 使用 for 循环， 可以这样做：
-
-  function multiply(arr, n) {
-    var product = 1;
-    for (var i = 0; i < n; i++) {
-        product *= arr[i];
-    }
-    return product;
+使用递归代替循环  
+递归是函数调用自身的操作。为了便于理解，有如下任务：`计算数组内元素前 n 的元素乘积。 使用 for 循环， 可以这样做`：
+```js
+function multiply(arr, n) {
+  var product = 1;
+  for (var i = 0; i < n; i++) {
+      product *= arr[i];
   }
-下面是递归写法，注意代码里的 multiply(arr, n) == multiply(arr, n - 1) * arr[n - 1]。 这意味着可以重写 multiply 以调用自身而无需依赖循环。
-
-  function multiply(arr, n) {
-    if (n <= 0) {
-      return 1;
-    } else {
-      return multiply(arr, n - 1) * arr[n - 1];
-    }
+  return product;
+}
+```
+下面是递归写法，注意代码里的`multiply(arr, n) == multiply(arr, n - 1) * arr[n - 1]`。 这意味着可以重写`multiply` 以调用自身而无需依赖循环。
+```js
+function multiply(arr, n) {
+  if (n <= 0) {
+    return 1;
+  } else {
+    return multiply(arr, n - 1) * arr[n - 1];
   }
-递归版本的 multiply 详述如下。 在 base case 里，也就是 n <= 0 时，返回 1。 在 n 比 0 大的情况里，函数会调用自身，参数 n 的值为 n - 1。 函数以相同的方式持续调用 multiply，直到 n <= 0 为止。 所以，所有函数都可以返回，原始的 multiply 返回结果。
+}
+```
+递归版本的`multiply` 详述如下。   
+  
+在`base case` 里，也就是 n <= 0 时，返回 1。 在 n 比 0 大的情况里，函数会调用自身，参数 n 的值为 n - 1。 函数以相同的方式持续调用 multiply，直到 n <= 0 为止。 所以，所有函数都可以返回，原始的 multiply 返回结果。
 ### ES6
 #### 防止对象改变
 `const` 声明并不会真的保护数据不被改变。为了确保数据不被改变，`JavaScript` 提供了一个函数`Object.freeze`。  
@@ -175,7 +179,7 @@ console.log(elements.join(''));
 console.log(elements.join('-'));
 // expected output: "Fire-Air-Water"
 ```
-###### map()
+###### Array.prototype.map()
 `map()` 方法**创建一个新数组**，其结果是该数组中的每个元素是调用一次提供的函数后的返回值。
 ```js
 const array1 = [1, 4, 9, 16];
@@ -287,6 +291,79 @@ let crow = new Bird("Alexis", "black");
 
 crow instanceof Bird;  // true
 ```
+#### 构造函数的属性
+`constructor`返回创建**实例对象的 Object 构造函数**的引用
+```js
+let duck = new Bird();
+let beagle = new Dog();
+
+console.log(duck.constructor === Bird);  // true
+console.log(beagle.constructor === Dog); // true
+```
+> 这种检查方式不推荐，推荐使用`instanceof`
+
+在自定义构造函数时，使用`prototype` 添加自定义属性时会变为`constructor`的值为`Object`，所以需要使用重新赋值将构造函数设置回去
+```js
+Bird.prototype = {
+  constructor: Bird,
+  numLegs: 2,
+  eat: function() {
+    console.log("nom nom nom");
+  },
+  describe: function() {
+    console.log("My name is " + this.name); 
+  }
+};
+```
+![原型链]([../img/原型链.png](https://raw.githubusercontent.com/PengPeng-Qi/PengPeng-Qi.github.io/main/img/%E5%8E%9F%E5%9E%8B%E9%93%BE.png))
+#### 对象的原型继承于哪里(isPrototypeOf())
+对象可以从创建它的构造函数那里继承`prototype`
+```js
+function Bird(name) {
+  this.name = name;
+}
+
+let duck = new Bird("Donald");
+```
+`duck` 从 `Bird` 构造函数那里继承了它的 `prototype`。可以使用 `isPrototypeOf` 方法来验证他们之间的关系：
+```js
+Bird.prototype.isPrototypeOf(duck);  // true
+```
+such as:
+```js
+const arr = new Array();
+
+Array.prototype.isPrototypeOf(arr) // true
+```
+#### Object.create()
+`Object.create()`方法创建一个**新对象**，**使用现有的对象来提供新创建的对象的__proto__**。
+![Object.create()](https://raw.githubusercontent.com/PengPeng-Qi/PengPeng-Qi.github.io/main/img/Object.create.png)
+```js
+/* 注意需要在初始化时候设置 */
+let animal = Object.create(Animal.prototype);
+
+/* 错误 */
+let animal;
+animal = Object.create(Animal.prototype);
+// SyntaxError: Identifier 'me' has already been declared
+```
+如果我们把`animal` 的`prototype` 设置为与`Animal` **构造函数**的`prototype` 一样，那么就相当于让`animal` 这个实例具有与`Animal` 的其他实例相同的**配方**了。
+```js
+animal instanceof Animal; // true
+```
+### 函数式编程
+- 1、功能独立 -- 不依赖于程序的状态(比如可能发生变化的全局变量)
+- 2、纯函数 -- 同一个输入永远得到同一个输出
+- 3、有限的副作用 -- 可以严格的限制函数外部对状态的更改
+  
+一些基本术语：  
+**高阶函数**：将函数作为参数或者返回值的函数  
+
+函数式编程的核心原则之一是**不改变任何东西**。  
+  
+函数式编程的另一个原则是：总是**显式声明依赖关系**。如果函数依赖于一个变量或对象，那么将该变量或对象作为参数直接传递到函数中。  
+
+**函数柯里化**：柯里化在不能一次为函数提供所有参数情况下很有用。 因为它可以**将每个函数的调用保存到一个变量中，该变量将保存返回的函数引用，该引用在下一个参数可用时接受该参数**。  
 ## 前端开发库
 ### React
 JSX 是 JavaScript 的语法扩展，所以实际上可以直接在 JSX 中编写 JavaScript。 要做到这一点，只需在花括号中包含希望被视为 JavaScript 的代码：{ 'this is treated as JavaScript code' }（这被视为 JavaScript 代码）。
