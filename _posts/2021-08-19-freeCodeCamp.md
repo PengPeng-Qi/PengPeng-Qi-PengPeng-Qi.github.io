@@ -260,7 +260,7 @@ for (const value of iteratorValue) {
 ```
 #### 字符串方法总结
 ##### slice()
-`slice()` 方法提取某个字符串的一部分，并返回一个新的字符串，且**不会改动原字符串**。`str.slice(beginIndex[, endIndex])`
+`slice()` 方法(浅拷贝)提取某个字符串的一部分，并返回一个新的字符串，且**不会改动原字符串**。`str.slice(beginIndex[, endIndex])`
 ##### split()
 转换为数组，**不会改变原字符串**
 ##### charAt()
